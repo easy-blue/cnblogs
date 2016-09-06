@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>3D翻转</title>
+	<style>
+	.container {
+		perspective: 400px;
+		transform-style: preserve-3d;
+		position: relative;
+	}
+	.container, .box1, .box2, .box3, .box4, .box5, .box6 {
+		width: 260px;
+		height: 160px;
+	}
+	.box1, .box2, .box3, .box4, .box5, .box6 {
+		backface-visibility: hidden;
+		transition: 1s;
+		transform-style: preserve-3d;
+		position: absolute;
+		top: 0;
+		left: 300px;
+		text-align: center;
+	}
+	.box1 {
+		background-color:pink;
+	}
+	.box2 {
+		background-color:red;
+		transform: rotateX(-180deg);
+	}
+	.box3 {
+		background-color:red;
+	}
+	.box4 {
+		background-color:pink;
+		transform: rotateY(-180deg);
+	}
+	.box5 {
+		background-color:red;
+		transform-origin:left;
+	}
+	.box6 {
+		background-color:pink;
+		transform-origin:right;
+	}
+	span{
+		font-size: 20px;
+		line-height: 160px;
+	}
+	.container:hover .box1 {transform: rotateX(180deg);}
+	.container:hover .box2 {transform: rotateX(0deg);}
+	.container:hover .box3 {transform: rotateY(180deg);}
+	.container:hover .box4 {transform: rotateY(0deg);}
+	.container:hover .box5 {transform: rotateZ(180deg);}
+	.container:hover .box6 {transform: rotateZ(-180deg);}
+	</style>
+</head>
+<body>
+	<div class="container" ontouchstart="this.classList.toggle('hover');">
+		<div class="box1">
+			<span>hello~</span>
+		</div>
+		<div class="box2">
+			<span>bye~</span>
+		</div>
+	</div>
+	<div class="container" ontouchstart="this.classList.toggle('hover');">
+		<div class="box3">
+			<span>hello~</span>
+		</div>
+		<div class="box4">
+			<span>bye~</span>
+		</div>
+	</div>
+	<div class="container" ontouchstart="this.classList.toggle('hover');">
+		<div class="box5">
+			<span>bye~</span>
+		</div>
+		<div class="box6">
+			<span>hello~</span>
+		</div>
+	</div>
+</body>
+</html>

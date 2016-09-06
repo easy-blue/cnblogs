@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>换行</title>
+	<style>
+	div{line-height: 30px;}
+	p{
+		width: 240px;
+		height:120px;
+		background-color: pink;
+	}
+	.text{
+		width:235px;
+		height:80px;
+		vertical-align: top;
+	}
+	.wwn{word-wrap: normal;}
+	.wbn{word-break: normal;}
+	.wbba{word-break: break-all;}
+	.wwbw{word-wrap: break-word;}
+	.wsn{white-space: nowrap;}
+	</style>
+</head>
+<body>
+	<div>
+		<p id="p1">请输入内容：Please enter the content 不加空格标点 PleaseenterthecontentPleaseenterthecontent</p>
+		<textarea class="text"></textarea><br/>
+		<input type="submit" value="提交内容" /><br/>
+		<input type="radio" name="style" value="word-break: normal" checked="checked" />word-break: normal 使用浏览器默认的换行规则<br/>
+		<input type="radio" name="style" value="word-wrap: normal"/>word-wrap: normal 只在允许的断字点换行<br/>
+		<input type="radio" name="style" value="word-break: break-all" />word-break: break-all 超过宽度所有都换行（拆分单词，对齐）<br/>
+		<input type="radio" name="style" value="word-wrap: break-word" />word-wrap: break-word 有换行点不拆单词先在换行点换(会出现空白，不对齐)<br/>
+		<input type="radio" name="style" value="white-space: nowrap" />white-space: nowrap 强制不换行<br/><br/>
+		换行点：如空格,CJK(Chinese/Japanese/Korean：中文/日文/韩文)
+	</div>
+	<script>
+		var obtn=document.getElementsByTagName('input');
+		var otext=document.getElementsByTagName('textarea');
+		var op1=document.getElementById('p1');
+		var osp1=document.getElementById('sp1');
+		obtn[0].onclick=function (){
+			op1.innerHTML=otext[0].value;
+		}
+		obtn[1].onclick=function (){
+			op1.className="wwn";
+		}
+		obtn[2].onclick=function (){
+			op1.className="wbn";
+		}
+		obtn[3].onclick=function (){
+			op1.className="wbba";
+		}
+		obtn[4].onclick=function (){
+			op1.className="wwbw";
+		}
+		obtn[5].onclick=function (){
+			op1.className="wsn";
+		}
+	</script>
+</body>
+</html>
